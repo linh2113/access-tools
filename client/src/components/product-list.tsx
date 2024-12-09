@@ -21,6 +21,7 @@ import { Input } from '@/components/ui/input'
 import Image from 'next/image'
 import { formatCurrency, formatSize, formatWeight, productKey } from '@/lib/utils'
 import { ProductType } from '@/types/type'
+// 6. Hiển thị data lên UI
 export default function ProductList() {
    const pageIndex = 0
    const pageSize = 5

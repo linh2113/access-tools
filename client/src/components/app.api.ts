@@ -1,6 +1,6 @@
 import http from '@/lib/http'
 import { ProductType } from '@/types/type'
-
+// 5. Call API từ server
 export const getProducts = () => http.get<ProductType[]>('/products')
 
 export const getTotalProducts = () => http.get('/products/count')

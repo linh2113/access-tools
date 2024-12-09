@@ -1,14 +1,13 @@
-require("dotenv").config(); // Đọc các biến môi trường từ file .env để sử dụng trong ứng dụng.
-const express = require("express"); // Import Express framework để xây dựng server API.
-const mysql = require("mysql2"); // Import thư viện MySQL2 để kết nối với cơ sở dữ liệu MySQL.
-const cors = require("cors"); // Import thư viện CORS để cho phép các domain khác truy cập API.
+require("dotenv").config();
+const express = require("express");
+const mysql = require("mysql2");
+const cors = require("cors");
+const app = express();
+const port = process.env.PORT || 5000;
+app.use(cors());
+app.use(express.json());
 
-const app = express(); // Khởi tạo ứng dụng Express.
-const port = process.env.PORT || 5000; // Lấy giá trị cổng từ biến môi trường hoặc sử dụng giá trị mặc định 5000.
-
-app.use(cors()); // Kích hoạt middleware CORS để xử lý các yêu cầu từ các domain khác nhau.
-app.use(express.json()); // Kích hoạt middleware để phân tích các yêu cầu HTTP có body dưới dạng JSON.
-
+// 1. Khởi động Server Express
 const db = mysql.createConnection({
    // Cấu hình kết nối MySQL sử dụng thông tin từ biến môi trường.
    host: process.env.DB_HOST,
@@ -17,13 +16,14 @@ const db = mysql.createConnection({
    database: process.env.DB_NAME,
 });
 
+// 2. Kết nối đến datawarehouse
 db.connect((err) => {
-   // Thực hiện kết nối với cơ sở dữ liệu.
+   // 3. Kiểm tra kết nối
    if (err) {
-      console.error("Error connecting to MySQL database: ", err); // Log lỗi nếu không kết nối được.
-      process.exit(1); // Thoát ứng dụng nếu lỗi kết nối.
+      console.error("Error connecting to MySQL database: ", err);
+      process.exit(1);
    }
-   console.log("Connected to MySQL database"); // Thông báo kết nối thành công.
+   console.log("Connected to MySQL database");
 });
 
 // Các hàm trả về câu lệnh SQL được sử dụng trong API.

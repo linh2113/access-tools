@@ -3,6 +3,7 @@ import React from 'react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import ProductList from '@/components/product-list'
 import Statistics from '@/components/statistics'
+// 4. Khởi dộng UI client
 export default function Home() {
    return (
       <>
