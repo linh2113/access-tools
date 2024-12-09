@@ -64,7 +64,7 @@ export default function Statistics() {
       labels: ['Average Weight', 'Max Weight', 'Min Weight'],
       datasets: [
          {
-            label: 'Weight (kg)',
+            label: 'Weight (g)',
             data: [weight.data?.data.average_weight, weight.data?.data.max_weight, weight.data?.data.min_weight],
             backgroundColor: ['blue', 'green', 'red']
          }
