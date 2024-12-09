@@ -19,8 +19,7 @@ export const productKey = [
    { key: 'manufacturer', name: 'Nhà sản xuất' },
    { key: 'length', name: 'Chiều dài' },
    { key: 'width', name: 'Chiều rộng' },
-   { key: 'height', name: 'Chiều cao' },
-   { key: 'source', name: 'Nguồn' }
+   { key: 'height', name: 'Chiều cao' }
 ]
 export function formatWeight(weight: string): string {
    const parsedWeight = parseInt(weight)
