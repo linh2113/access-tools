@@ -16,7 +16,7 @@ const db = mysql.createConnection({
    database: process.env.DB_NAME,
 });
 
-// 2. Kết nối đến datawarehouse
+// 2. Kết nối đến data mart
 db.connect((err) => {
    // 3. Kiểm tra kết nối
    if (err) {
