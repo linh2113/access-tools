@@ -9,7 +9,6 @@ app.use(express.json());
 
 // 1. Khởi động Server Express
 const db = mysql.createConnection({
-   // Cấu hình kết nối MySQL sử dụng thông tin từ biến môi trường.
    host: process.env.DB_HOST,
    user: process.env.DB_USER,
    password: process.env.DB_PASSWORD,
@@ -67,9 +66,9 @@ const getResolutionStats = () => {
 app.get("/api/products", (req, res) => {
    db.query(getProducts(), (err, results) => {
       if (err) {
-         return res.status(500).json({ error: err.message }); // Xử lý lỗi nếu có.
+         return res.status(500).json({ error: err.message });
       }
-      res.json(results); // Trả về kết quả dưới dạng JSON.
+      res.json(results);
    });
 });
 
@@ -77,9 +76,9 @@ app.get("/api/products", (req, res) => {
 app.get("/api/products/count", (req, res) => {
    db.query(getProductCount(), (err, results) => {
       if (err) {
-         return res.status(500).json({ error: err.message }); // Xử lý lỗi nếu có.
+         return res.status(500).json({ error: err.message });
       }
-      res.json({ total_count: results[0].total_count }); // Trả về số lượng sản phẩm.
+      res.json({ total_count: results[0].total_count });
    });
 });
 
@@ -87,9 +86,9 @@ app.get("/api/products/count", (req, res) => {
 app.get("/api/products/average-price", (req, res) => {
    db.query(getAveragePrice(), (err, results) => {
       if (err) {
-         return res.status(500).json({ error: err.message }); // Xử lý lỗi nếu có.
+         return res.status(500).json({ error: err.message });
       }
-      res.json({ average_price: results[0].average_price }); // Trả về giá trung bình.
+      res.json({ average_price: results[0].average_price });
    });
 });
 
@@ -97,11 +96,11 @@ app.get("/api/products/average-price", (req, res) => {
 app.get("/api/products/price-range", (req, res) => {
    db.query(getPriceRange(), (err, results) => {
       if (err) {
-         return res.status(500).json({ error: err.message }); // Xử lý lỗi nếu có.
+         return res.status(500).json({ error: err.message });
       }
       res.json({
-         max_price: results[0].max_price, // Giá lớn nhất.
-         min_price: results[0].min_price, // Giá nhỏ nhất.
+         max_price: results[0].max_price,
+         min_price: results[0].min_price,
       });
    });
 });
@@ -110,9 +109,9 @@ app.get("/api/products/price-range", (req, res) => {
 app.get("/api/products/manufacturer-stats", (req, res) => {
    db.query(getManufacturerStats(), (err, results) => {
       if (err) {
-         return res.status(500).json({ error: err.message }); // Xử lý lỗi nếu có.
+         return res.status(500).json({ error: err.message });
       }
-      res.json(results); // Trả về kết quả thống kê.
+      res.json(results);
    });
 });
 
@@ -120,12 +119,12 @@ app.get("/api/products/manufacturer-stats", (req, res) => {
 app.get("/api/products/weight-stats", (req, res) => {
    db.query(getWeightStats(), (err, results) => {
       if (err) {
-         return res.status(500).json({ error: err.message }); // Xử lý lỗi nếu có.
+         return res.status(500).json({ error: err.message });
       }
       res.json({
-         average_weight: results[0].average_weight, // Trọng lượng trung bình.
-         max_weight: results[0].max_weight, // Trọng lượng lớn nhất.
-         min_weight: results[0].min_weight, // Trọng lượng nhỏ nhất.
+         average_weight: results[0].average_weight,
+         max_weight: results[0].max_weight,
+         min_weight: results[0].min_weight,
       });
    });
 });
@@ -134,9 +133,9 @@ app.get("/api/products/weight-stats", (req, res) => {
 app.get("/api/products/resolution-stats", (req, res) => {
    db.query(getResolutionStats(), (err, results) => {
       if (err) {
-         return res.status(500).json({ error: err.message }); // Xử lý lỗi nếu có.
+         return res.status(500).json({ error: err.message });
       }
-      res.json(results); // Trả về kết quả thống kê.
+      res.json(results);
    });
 });
 
